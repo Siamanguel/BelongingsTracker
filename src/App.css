@@ -237,6 +237,17 @@ body {
   border-left: 2px solid #3b82f6;
 }
 
+/* NEW: Checked out styling */
+.tree-node.checked-out {
+  background-color: #fef3c7;
+  border-left: 2px solid #f59e0b;
+}
+
+.tree-node.checked-out.selected {
+  background-color: #fbbf24;
+  border-left: 2px solid #d97706;
+}
+
 .expand-button {
   display: flex;
   align-items: center;
@@ -271,6 +282,16 @@ body {
 
 .location-icon svg {
   color: #3b82f6;
+}
+
+/* NEW: Checkout indicator */
+.checkout-indicator {
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.checkout-indicator svg {
+  color: #f59e0b;
 }
 
 .node-name {
@@ -320,6 +341,35 @@ body {
   transition: background-color 0.2s;
 }
 
+/* NEW: Checkout button styling */
+.checkout-button {
+  color: #9ca3af;
+}
+
+.checkout-button:hover {
+  color: #059669;
+  background-color: #ecfdf5;
+}
+
+.checkin-button {
+  color: #9ca3af;
+}
+
+.checkin-button:hover {
+  color: #dc2626;
+  background-color: #fef2f2;
+}
+
+/* NEW: Move button styling */
+.move-button {
+  color: #9ca3af;
+}
+
+.move-button:hover {
+  color: #8b5cf6;
+  background-color: #f3f4f6;
+}
+
 .edit-button {
   color: #9ca3af;
 }
@@ -359,6 +409,9 @@ body {
   font-weight: 500;
   color: #111827;
   margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .result-path {
@@ -386,12 +439,25 @@ body {
   font-weight: 600;
   color: #111827;
   margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .item-path {
   font-size: 14px;
   color: #6b7280;
   margin-bottom: 12px;
+}
+
+/* NEW: Checkout info styling */
+.checkout-info {
+  font-size: 14px;
+  color: #f59e0b;
+  margin-bottom: 12px;
+  padding: 8px;
+  background-color: #fef3c7;
+  border-radius: 4px;
 }
 
 .details-panel h4 {
@@ -410,12 +476,101 @@ body {
   font-size: 14px;
   color: #6b7280;
   margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .child-count {
   font-size: 12px;
   color: #9ca3af;
   margin-left: 4px;
+}
+
+/* NEW: Checked out badges */
+.checked-out-badge {
+  background-color: #f59e0b;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.checked-out-badge.small {
+  font-size: 10px;
+  padding: 1px 4px;
+}
+
+/* NEW: Modal styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 16px 0;
+}
+
+.move-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.move-form label {
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.move-form select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  background-color: white;
+}
+
+.move-form select:focus {
+  border-color: #3b82f6;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* NEW: Select none utility */
+.select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* Scrollbar styling */
@@ -433,5 +588,23 @@ body {
 }
 
 .panel-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Modal scrollbar styling */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
